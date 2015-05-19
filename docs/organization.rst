@@ -1,0 +1,9 @@
+Internal Structure
+====================
+
+The internals of the inception python api are entirely contained within :py:mod:`inception.image`.  Roughly speaking, the internal api is organized in a series of lower-level packages, most of which implement some core piece of functionality, such as matting, shadow insertion, scene understanding, etc. Each of these packages contain the low-level image manipulation and implementation and tend to take numpy arrays directly as arguments.
+
+The most important internal class however is :py:mod:`~inception.Image`, which is exposed directly up to the public api.  The `Operation` classes work directly with images 
+
+The link between the internal api and the public api is provided by the :py:class:`~inception.image.operation.Operation` class and its subclasses.  All functionality exposed up to the public api is wrapped in an `Operation` subclass. This serves the purpose of defining a consistent interface for interacting with and swapping out major pipeline pieces, and keeps access of the top-level api and gui to the internals relatively streamlined.  `Operation`s deal exclusively with `Image` objects as input and output and in that sense operate at a higher level than the rest of the internal api.  Additionally, some of the `Operation` subclasses do not have a corresponding low-level class, as is usually the case when the operation serves only to provide a unified interface around third party functions, such as :py:class:`~inception.image.operation.poisson.PoissonOperation`.  In these cases, the `Operation` structure again serves the added benefit of making the interface more consistent.  In general an operation will take in one or more images as its first arguments, and always returns a single image which is the result of the operation.  In this way, operations can usually be chained together, as is done by the public api.
+
