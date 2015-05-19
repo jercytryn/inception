@@ -1,0 +1,57 @@
+diff -ur VanishingPointMatlabCode_orig/PerspectiveCamera/mainVPandFocalEstimation.m VanishingPointMatlabCode/PerspectiveCamera/mainVPandFocalEstimation.m
+--- VanishingPointMatlabCode/PerspectiveCamera/mainVPandFocalEstimation.m	2015-05-08 11:51:59.000000000 -0400
++++ VanishingPointMatlabCode_new/PerspectiveCamera/mainVPandFocalEstimation.m	2015-05-08 11:51:09.000000000 -0400
+@@ -55,10 +55,11 @@
+ elseif strcmp(Database, 'ECD')
+     fid     = fopen('./ExampleData/ECD/imageName.list');
+     fidLine = fopen('./ExampleData/ECD/lineFile.list');    
+-    load ./ExampleData/ECD/ImageSizes.mat
++    %load ./ExampleData/ECD/ImageSizes.mat
+     UseLineFromDatabase = 0;
+-    imageWidthVec  = imageWidthVec*0.5; %image is downsampled.
+-    imageHeightVec = imageHeightVec*0.5;%image is downsampled.    
++    %imageWidthVec  = imageWidthVec*0.5; %image is downsampled.
++    %imageHeightVec = imageHeightVec*0.5;%image is downsampled.    
++        
+ else
+     error('Please choose the name database:YUD or ECD.\n If other database is going to use, then the file path in the following need be adjusted.');
+ end
+@@ -69,6 +70,16 @@
+ lineNameList  = text{1}; 
+ imageNum      = size(imageNameList,1);
+ 
++imageWidthVec(imageNum) = 0;
++imageHeightVec(imageNum) = 0;
++
++for imageID = 1:imageNum
++    imageName  =  imageNameList{imageID};
++    [rows,cols,chans] = size(imread(imageName));  
++    imageWidthVec(imageID) = cols;
++    imageHeightVec(imageID) = rows;
++end
++
+ if kSaveResults == true
+     outPath = 'OutResult/';
+     if ~exist(outPath,'dir')
+@@ -98,11 +109,20 @@
+         continue;
+     end
+     if kPlotLines
++        disp('<START OUTPUT>');
+         disPlayInfo1 = strcat('ID = ', num2str(imageID), ',   timeToRansac = ', num2str(info.timeToRansac),...
+            ',   timeToRefine = ', num2str(info.timeToRefine),...     
+-           ',   Inliers = ', num2str(info.bestNumInliersRatio), ',    focal= ', num2str(info.bestFocal),...
++           ',   Inliers = ', num2str(info.bestNumInliersRatio), ',    focal = ', num2str(info.bestFocal),...
+            ',   hpyCount = ', num2str(info.hypCount));
+         disp(disPlayInfo1);
++        disp('unitVanishing =');
++        disp(info.bestVP);
++        disp('principalPoint =');
++        disp(pp);
++        disp('<END OUTPUT>');
++        continue;
++        
++        
+         % load the image
+         imageName  =  imageNameList{imageID};
+         Image_orig = imread(imageName);

@@ -1,0 +1,28 @@
+For OS X Users:
+* Replaced echo -n with printf in vpdetection/Makefile to avoid errors like 'VPCluster.d:1: *** missing separator.  Stop.' See "http://stackoverflow.com/questions/13553426/makefile-error-missing-separator-compiling-with-sdl-and-opengl" for more detail
+
+* After that, running make produced too many errors to compile.  Worked around this by using macports to select mp-gcc44 via sudo port select gcc mp-gcc44, and was able to run make
+
+* To compile lsd-1.5, had to run sudo port select gcc none, then symlink a gcc-4.2 on my path to the default system gcc, e.g.
+ln -s /usr/bin/gcc ~/bin/gcc-4.2
+
+* This was still causing the following error
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+clang: warning: no such sysroot directory: '/Developer/SDKs/MacOSX10.6.sdk'
+lsd_matlab.c:27:10: fatal error: 'stdio.h' file not found
+#include <stdio.h>
+         ^
+1 error generated.
+
+    mex: compile of ' "lsd_matlab.c"' failed.
+Solution was embedded here:
+http://www.mathworks.com/matlabcentral/answers/158273-compiling-mex-files-in-mac-10-9
+
+Had to change the relevant line in my system's mexopts.sh from
+SDKROOT='/Developer/SDKs/MacOSX10.6.sdk' to 
+SDKROOT='/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk'
+Scratch that, didn't work. Instead, changed gcc back to mp-gcc44, ran
+rm ~/bin/gcc-4.2
+ln -s /opt/local/bin/gcc ~/bin/gcc-4.2
+
+and tweaked the meshopts.sh CFLAGS line, removing the "-no-cpp-precomp -arch $ARCHS" options entirely... seemed to compile and run correctly

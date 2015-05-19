@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/cursor12.png</file>
+    <file>icons/left3.png</file>
+    <file>icons/light105.png</file>
+    <file>icons/paint87.png</file>
+    <file>icons/selection7.png</file>
+    <file>icons/stamp8.png</file>
+    <file>icons/stamp11.png</file>
+  </qresource>
+</RCC>

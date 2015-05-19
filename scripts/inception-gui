@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import os, sys
+from PySide import QtGui
+from inception.ui.mainwidget import InceptionMainWindow
+
+class App(object):
+    def __init__(self, args):
+        self.args = args
+        
+    def run(self):
+        # application main launch point
+        app = QtGui.QApplication(sys.argv)
+        args = {}
+        if self.args.demo:
+           args['defaultFilepath'] = os.path.join(os.path.dirname(__file__), "../test/images/traditional-living-room.jpg")
+        
+        window = InceptionMainWindow(**args)
+        window.show()
+        sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="A gui object insertion tool")
+    parser.add_argument('--demo','-demo','-d',action="store_true",help="Run in demo mode.")
+    App(parser.parse_args()).run()
