@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception package" href="inception.html" />
+    <link rel="next" title="inception.image.matte package" href="inception.image.matte.html" />
+    <link rel="prev" title="inception package" href="inception.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.image.matte.html" title="inception.image.matte package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.html" title="inception package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" accesskey="U">inception package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-package">
+<h1>inception.image package<a class="headerlink" href="#inception-image-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="inception.image.matte.html">inception.image.matte package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.matte.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.matte.html#module-inception.image.matte.bordermatte">inception.image.matte.bordermatte module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.matte.html#module-inception.image.matte.closedformmatte">inception.image.matte.closedformmatte module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.matte.html#module-inception.image.matte.simplematte">inception.image.matte.simplematte module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.matte.html#module-inception.image.matte">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inception.image.operation.html">inception.image.operation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.base">inception.image.operation.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.floodfill">inception.image.operation.floodfill module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.grabcut">inception.image.operation.grabcut module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.matte">inception.image.operation.matte module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.merge">inception.image.operation.merge module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.poisson">inception.image.operation.poisson module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.scale">inception.image.operation.scale module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.shadow">inception.image.operation.shadow module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation.statadjust">inception.image.operation.statadjust module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.operation.html#module-inception.image.operation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inception.image.place.html">inception.image.place package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.place.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.place.html#module-inception.image.place.place">inception.image.place.place module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.place.html#module-inception.image.place.randomplace">inception.image.place.randomplace module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.place.html#module-inception.image.place">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inception.image.scene.html">inception.image.scene package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.scene.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.scene.html#module-inception.image.scene.scene">inception.image.scene.scene module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.scene.html#module-inception.image.scene.vanishingpoint">inception.image.scene.vanishingpoint module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.scene.html#module-inception.image.scene">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inception.image.shadow.html">inception.image.shadow package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.shadow.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.shadow.html#module-inception.image.shadow.shadow">inception.image.shadow.shadow module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.shadow.html#module-inception.image.shadow">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inception.image.statadjust.html">inception.image.statadjust package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.statadjust.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.statadjust.html#module-inception.image.statadjust.colorspace">inception.image.statadjust.colorspace module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.statadjust.html#module-inception.image.statadjust.statadjust">inception.image.statadjust.statadjust module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inception.image.statadjust.html#module-inception.image.statadjust">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.analyze">
+<span id="inception-image-analyze-module"></span><h2>inception.image.analyze module<a class="headerlink" href="#module-inception.image.analyze" title="Permalink to this headline">¶</a></h2>
+<p>Contains low-level convenience functions for analyzing images without actually changing any
+data in the image</p>
+<dl class="function">
+<dt id="inception.image.analyze.detect_bg">
+<tt class="descclassname">inception.image.analyze.</tt><tt class="descname">detect_bg</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.analyze.detect_bg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to automatically &#8220;detect&#8221; e.g. guess at the background color of a (usually opaque) image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite> or <cite>numpy.ndarray</cite></span></dt>
+<dd><p class="first last">The image whose background color we wish to detect</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The background color of the image</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>tuple</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.analyze.validate_as_foreground">
+<tt class="descclassname">inception.image.analyze.</tt><tt class="descname">validate_as_foreground</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.analyze.validate_as_foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically detects whether the image is a valid foreground element, ready to insert</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite> or <cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image to validate</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the image is a valid foreground, False otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.image">
+<span id="inception-image-image-module"></span><h2>inception.image.image module<a class="headerlink" href="#module-inception.image.image" title="Permalink to this headline">¶</a></h2>
+<p>Image implementation
+This provides a layer of encapsulation for the convenience of the internal inception framework</p>
+<dl class="class">
+<dt id="inception.image.image.FileResourceHandler">
+<em class="property">class </em><tt class="descclassname">inception.image.image.</tt><tt class="descname">FileResourceHandler</tt><big>(</big><em>urlparse</em><big>)</big><a class="headerlink" href="#inception.image.image.FileResourceHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.image.ImageResourceHandler" title="inception.image.image.ImageResourceHandler"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.image.ImageResourceHandler</span></tt></a></p>
+<p>A file resource handler</p>
+<dl class="method">
+<dt id="inception.image.image.FileResourceHandler.getstream">
+<tt class="descname">getstream</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.FileResourceHandler.getstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.FileResourceHandler.rawsupport">
+<tt class="descname">rawsupport</tt><a class="headerlink" href="#inception.image.image.FileResourceHandler.rawsupport" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.image.HttpResourceHandler">
+<em class="property">class </em><tt class="descclassname">inception.image.image.</tt><tt class="descname">HttpResourceHandler</tt><big>(</big><em>urlparse</em><big>)</big><a class="headerlink" href="#inception.image.image.HttpResourceHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.image.ImageResourceHandler" title="inception.image.image.ImageResourceHandler"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.image.ImageResourceHandler</span></tt></a></p>
+<p>An http resource handler. Can also handle https urls</p>
+<dl class="method">
+<dt id="inception.image.image.HttpResourceHandler.getstream">
+<tt class="descname">getstream</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.HttpResourceHandler.getstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.image.Image">
+<em class="property">class </em><tt class="descclassname">inception.image.image.</tt><tt class="descname">Image</tt><big>(</big><em>data</em>, <em>pilimage=None</em>, <em>filename=None</em>, <em>scene_description=None</em><big>)</big><a class="headerlink" href="#inception.image.image.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An image object representing an image stored in RGB[A] or L floating point representation</p>
+<dl class="method">
+<dt id="inception.image.image.Image.clone">
+<tt class="descname">clone</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.Image.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a deep copy of this image object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The deep clone</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.data">
+<tt class="descname">data</tt><a class="headerlink" href="#inception.image.image.Image.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The underlying (numpy) data representation for this image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>numpy.ndarray</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_any">
+<em class="property">classmethod </em><tt class="descname">from_any</tt><big>(</big><em>thing</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries to construct an image from whatever the user hands it</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_filepath">
+<em class="property">classmethod </em><tt class="descname">from_filepath</tt><big>(</big><em>filepath</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an image from the given filepath</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>filepath <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">The path to an image on disk. May be a relative or absolute path
+and may include environment variables</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new instance of <cite>Image</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_image">
+<em class="property">classmethod </em><tt class="descname">from_image</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an image from a <cite>PIL.Image</cite> object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>PIL.Image</cite></span></dt>
+<dd><p class="first last">The image stored as a PIL Image object</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new instance of <cite>Image</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_list">
+<em class="property">classmethod </em><tt class="descname">from_list</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an image from a list of lists</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>l <span class="classifier-delimiter">:</span> <span class="classifier"><cite>list</cite></span></dt>
+<dd><p class="first last">A list of list of lists of floats [0.0-1.0] or ints [0-255] representing the channels of image
+in row, col, channel order</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new instance of <cite>Image</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_qimage">
+<em class="property">classmethod </em><tt class="descname">from_qimage</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_qimage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an image from a <cite>QImage</cite> object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>QtGui.QImage</cite></span></dt>
+<dd><p class="first last">The qt image object</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new instance of <cite>Image</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_stream">
+<em class="property">classmethod </em><tt class="descname">from_stream</tt><big>(</big><em>stream</em>, <em>resource=None</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an image from the given stream, e.g. a file object or the like</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>stream <span class="classifier-delimiter">:</span> <span class="classifier"><cite>object</cite></span></dt>
+<dd><p class="first last">Any object that behaves like a file and can be read from</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new instance of <cite>Image</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.Image.from_url">
+<em class="property">classmethod </em><tt class="descname">from_url</tt><big>(</big><em>url</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.from_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an image from the given url or filepath
+Supports protocols such as &#8216;file&#8217; and &#8216;http&#8217;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>url <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">The url or filepath denoting the location of the image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new instance of <cite>Image</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.height">
+<tt class="descname">height</tt><a class="headerlink" href="#inception.image.image.Image.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The image height, in pixels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>int</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.opencvimage">
+<tt class="descname">opencvimage</tt><a class="headerlink" href="#inception.image.image.Image.opencvimage" title="Permalink to this definition">¶</a></dt>
+<dd><p>The opencv representation for this image.
+Generally opencv algorithms operate on three channel 8-bit BGR</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>numpy.array</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.pilimage">
+<tt class="descname">pilimage</tt><a class="headerlink" href="#inception.image.image.Image.pilimage" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>PIL.Image</cite> object for this image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>PIL.Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.qimage">
+<tt class="descname">qimage</tt><a class="headerlink" href="#inception.image.image.Image.qimage" title="Permalink to this definition">¶</a></dt>
+<dd><p>The QImage for this image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>PySide.QtGui.QImage</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.image.Image.save">
+<tt class="descname">save</tt><big>(</big><em>outpath</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.image.Image.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes the data to the given outpath. This is currently just a paper-thin 
+wrapper around <cite>PIL.Image.save()</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt>outpath <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">The path to which the image should be output</p>
+</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>args :</dt>
+<dd><p class="first last">Extra arguments to pass through to <cite>PIL.Image.save</cite></p>
+</dd>
+<dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs <span class="classifier-delimiter">:</span> <span class="classifier"></span></dt>
+<dd><p class="first last">Extra keyword arguments to pass through to <cite>PIL.Image.save</cite></p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.scene_description">
+<tt class="descname">scene_description</tt><a class="headerlink" href="#inception.image.image.Image.scene_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cached scene description, if any</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>SceneDescription</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.image.Image.shallow_clone">
+<tt class="descname">shallow_clone</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.Image.shallow_clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a shallow copy of this image object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The shallow clone</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.image.Image.to_grayscale">
+<tt class="descname">to_grayscale</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.Image.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts this image to 1 channel grayscale, in place. 
+Warning: This is a lossy operation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.image.Image.to_rgb">
+<tt class="descname">to_rgb</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.Image.to_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function to convert this image from grayscale or rgba
+to RGB in place.  Simply copies the single channel into each color channel for grayscale</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.image.Image.to_rgba">
+<tt class="descname">to_rgba</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.Image.to_rgba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function to convert this image from grayscale or RGB to RGBA in place.
+For grayscale, fills each color channel with the grayscale channel. The alpha channel
+is assumed to be all opaque.  
+If the image is already RGBA, this is a no-op</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.Image.width">
+<tt class="descname">width</tt><a class="headerlink" href="#inception.image.image.Image.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The image width, in pixels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>int</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.image.ImageResourceHandler">
+<em class="property">class </em><tt class="descclassname">inception.image.image.</tt><tt class="descname">ImageResourceHandler</tt><big>(</big><em>urlparse</em><big>)</big><a class="headerlink" href="#inception.image.image.ImageResourceHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An abstract handler of image resources of a particular scheme/protocol
+This also serves as the registry point for custom handlers via:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ImageResourceHandler</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="s">&#39;xkcd&#39;</span><span class="p">,</span> <span class="n">XKCDResourceHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The handler passed in has no need to sublcass from <cite>ImageResourceHandler</cite>
+but must at the very least implement the <cite>rawsupport</cite> property and the
+<cite>getscheme</cite> method</p>
+<dl class="attribute">
+<dt id="inception.image.image.ImageResourceHandler.filename">
+<tt class="descname">filename</tt><a class="headerlink" href="#inception.image.image.ImageResourceHandler.filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path part of the url (does not include query args, fragments or the like)</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.ImageResourceHandler.get">
+<em class="property">classmethod </em><tt class="descname">get</tt><big>(</big><em>url</em><big>)</big><a class="headerlink" href="#inception.image.image.ImageResourceHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the appropriate handler to deal with the resource pointed to by the given url</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>url <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">A uniform resource locator of any supported scheme</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A image resource handler capable of reading the given resource</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.image.ImageResourceHandler.getstream">
+<tt class="descname">getstream</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.image.ImageResourceHandler.getstream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a readable stream object which can be used to read bits from the resource with a
+read() method.
+Must be implemented by subclasses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A readable stream which can be used to read the resource this is handling</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.image.ImageResourceHandler.rawsupport">
+<tt class="descname">rawsupport</tt><a class="headerlink" href="#inception.image.image.ImageResourceHandler.rawsupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>If True, the system can handle the url path of this scheme directly as a filepath 
+without needing to use a stream. Subclasses should still implement <cite>getstream</cite> 
+as well to be good conforming citizens and allow flexibility.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="inception.image.image.ImageResourceHandler.register_handler">
+<em class="property">classmethod </em><tt class="descname">register_handler</tt><big>(</big><em>scheme</em>, <em>handler</em><big>)</big><a class="headerlink" href="#inception.image.image.ImageResourceHandler.register_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a new handler for a given scheme</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt>scheme <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">The protocol this handler supports</p>
+</dd>
+<dt>handler <span class="classifier-delimiter">:</span> <span class="classifier"><cite>object</cite></span></dt>
+<dd><p class="first last">A handler with a <cite>rawsupport</cite> property and <cite>getstream</cite> method</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image" title="Permalink to this headline">¶</a></h2>
+<p>Image manipulation package. 
+This forms of the meat of the internal inception api.
+The only publicly exposed class is <cite>inception.Image</cite>, which serves 
+as a convenient wrapper around a numpy array.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.analyze">inception.image.analyze module</a></li>
+<li><a class="reference internal" href="#module-inception.image.image">inception.image.image module</a></li>
+<li><a class="reference internal" href="#module-inception.image">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.html"
+                        title="previous chapter">inception package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.image.matte.html"
+                        title="next chapter">inception.image.matte package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

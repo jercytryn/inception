@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image.place package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception.image package" href="inception.image.html" />
+    <link rel="next" title="inception.image.scene package" href="inception.image.scene.html" />
+    <link rel="prev" title="inception.image.operation package" href="inception.image.operation.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.image.scene.html" title="inception.image.scene package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.image.operation.html" title="inception.image.operation package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" >inception package</a> &raquo;</li>
+          <li><a href="inception.image.html" accesskey="U">inception.image package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-place-package">
+<h1>inception.image.place package<a class="headerlink" href="#inception-image-place-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.place.place">
+<span id="inception-image-place-place-module"></span><h2>inception.image.place.place module<a class="headerlink" href="#module-inception.image.place.place" title="Permalink to this headline">¶</a></h2>
+<p>Base placement module</p>
+<dl class="function">
+<dt id="inception.image.place.place.normalize_shape">
+<tt class="descclassname">inception.image.place.place.</tt><tt class="descname">normalize_shape</tt><big>(</big><em>image</em>, <em>offset</em>, <em>width</em>, <em>height</em>, <em>dtype=None</em>, <em>expand=False</em><big>)</big><a class="headerlink" href="#inception.image.place.place.normalize_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalizes the shape of the given image to the given dimensions, placing its upper right corner
+at the upper right corner of a black image but offset by the given offset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image to normalize</p>
+</dd>
+<dt>offset <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">A tuple of (row, column) denoting the offset into the black image where the upper-left
+corner of the source image should begin. Default=(0,0)</p>
+</dd>
+<dt>width <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The width to normalize to in pixels</p>
+</dd>
+<dt>height <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The height to normalize to in pixels</p>
+</dd>
+<dt>dtype <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">The datatype of the resulting image</p>
+</dd>
+<dt>expand <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd><p class="first last">If True, rather than conform the image inside the (height, width) array, the array is expanded
+such that the image is not cropped, even when it exceeds the boundary of the given width/height.
+Otherwise, the image is cropped outside the width/height. Default=False</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.place.randomplace">
+<span id="inception-image-place-randomplace-module"></span><h2>inception.image.place.randomplace module<a class="headerlink" href="#module-inception.image.place.randomplace" title="Permalink to this headline">¶</a></h2>
+<p>Random placement</p>
+<dl class="function">
+<dt id="inception.image.place.randomplace.randomplace">
+<tt class="descclassname">inception.image.place.randomplace.</tt><tt class="descname">randomplace</tt><big>(</big><em>foreground</em>, <em>background</em>, <em>randmin=2</em>, <em>randmax=5</em><big>)</big><a class="headerlink" href="#inception.image.place.randomplace.randomplace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random but &#8220;somewhat feasible&#8221; position and scale for the foreground object
+Returns a valid bounding box for placement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>A bounding box of the form (upperleft.x, upperleft.y, lowerright.x, lowerright.y)</cite></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>tuple</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.place">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image.place" title="Permalink to this headline">¶</a></h2>
+<p>Package for operations relating to the placement of images</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image.place package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.place.place">inception.image.place.place module</a></li>
+<li><a class="reference internal" href="#module-inception.image.place.randomplace">inception.image.place.randomplace module</a></li>
+<li><a class="reference internal" href="#module-inception.image.place">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.image.operation.html"
+                        title="previous chapter">inception.image.operation package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.image.scene.html"
+                        title="next chapter">inception.image.scene package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.place.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.place.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

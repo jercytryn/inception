@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image.statadjust package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception.image package" href="inception.image.html" />
+    <link rel="next" title="inception.ui package" href="inception.ui.html" />
+    <link rel="prev" title="inception.image.shadow package" href="inception.image.shadow.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.ui.html" title="inception.ui package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.image.shadow.html" title="inception.image.shadow package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" >inception package</a> &raquo;</li>
+          <li><a href="inception.image.html" accesskey="U">inception.image package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-statadjust-package">
+<h1>inception.image.statadjust package<a class="headerlink" href="#inception-image-statadjust-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.statadjust.colorspace">
+<span id="inception-image-statadjust-colorspace-module"></span><h2>inception.image.statadjust.colorspace module<a class="headerlink" href="#module-inception.image.statadjust.colorspace" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.cct_to_xy">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">cct_to_xy</tt><big>(</big><em>temperature</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.cct_to_xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the two-channel mired, tint temperature image to xy chromaticity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>temperature <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">An array of depth 2 containing mired, tint</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The image in xy chromaticity space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.hsv_to_rgb">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">hsv_to_rgb</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.hsv_to_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given linear color space HSV image to RGB</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The linear color image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The image in RGB color space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.linear_to_srgb">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">linear_to_srgb</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.linear_to_srgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given image from linear color space to sRGB color space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The linear image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">THe image in sRGB color space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.rgb_to_hsv">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">rgb_to_hsv</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.rgb_to_hsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given linear color space RGB image to HSV</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The linear color image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The image in HSV color space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.rgb_to_xyY">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">rgb_to_xyY</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.rgb_to_xyY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given linear color space RGB image to xyY color space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The linear color image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The image in xyY color space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.srgb_to_linear">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">srgb_to_linear</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.srgb_to_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given image from sRGB color space to linear color space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The sRGB image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">THe image in linear color space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.xyY_to_cct">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">xyY_to_cct</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.xyY_to_cct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the xyY linear image to a 2-channel image containing mired, tint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image in xyY space</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The color temperature image</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.colorspace.xyY_to_rgb">
+<tt class="descclassname">inception.image.statadjust.colorspace.</tt><tt class="descname">xyY_to_rgb</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.colorspace.xyY_to_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the given linear color space xyY image to RGB color space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The linear color image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The image in RGB color space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.statadjust.statadjust">
+<span id="inception-image-statadjust-statadjust-module"></span><h2>inception.image.statadjust.statadjust module<a class="headerlink" href="#module-inception.image.statadjust.statadjust" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.compute_stats">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">compute_stats</tt><big>(</big><em>statname</em>, <em>image</em>, <em>filter_exposure=True</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.compute_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes low, medium, and high mean values for the given statistic.
+For statistics configured to allow an overhighlight metric, also computes 
+a fourth image statistic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>statname <span class="classifier-delimiter">:</span> <span class="classifier"><cite>basestring</cite></span></dt>
+<dd><p class="first last">The name of the image statistic, (e.g. luminance, cct, saturation)</p>
+</dd>
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image to compute statistics for</p>
+</dd>
+<dt>filter_exposure <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd><p class="first last">If True, only includes pixels that are not over or underexposed
+in computing the various metrics</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (low, medium, high) metric values for the image, or (low, medium, high, extra),
+if the statistic is configured to allow &#8216;different_brightness&#8217;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getcolortemp">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getcolortemp</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getcolortemp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getcontrast">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getcontrast</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getcontrast" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getcontrast_from_lum">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getcontrast_from_lum</tt><big>(</big><em>luminance</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getcontrast_from_lum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getcontrast_from_xyY">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getcontrast_from_xyY</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getcontrast_from_xyY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.gethue">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">gethue</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.gethue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getlog2luminance">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getlog2luminance</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getlog2luminance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getlog2saturation">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getlog2saturation</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getlog2saturation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getluminance">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getluminance</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getluminance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.getsaturation">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">getsaturation</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.getsaturation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.hue_match">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">hue_match</tt><big>(</big><em>foreground</em>, <em>background</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.hue_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches mean hue of the given foreground to the given background image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>foreground <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The foreground image</p>
+</dd>
+<dt>background <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The background image</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The foreground image with hue matched to background</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.match">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">match</tt><big>(</big><em>statname</em>, <em>foregroundmonly</em>, <em>foreground</em>, <em>background</em>, <em>filter_exposure=True</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Match the given image statistic between the measure-only foreground and background images, and apply
+the result to the given foreground image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>foregroundmonly <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The measure-only foreground image</p>
+</dd>
+<dt>foreground <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The write-only foreground image</p>
+</dd>
+<dt>background <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The background image to match local contrast to</p>
+</dd>
+<dt>filter_exposure <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd><p class="first last">If True, only includes pixels that are not over or underexposed
+in computing the various metrics</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (newforegroundmonly, newforeground) representing the shifted
+measure-only foreground and foreground respectively</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.match_contrast">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">match_contrast</tt><big>(</big><em>foregroundmonly</em>, <em>foreground</em>, <em>background</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.match_contrast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches contrast between the measure-only foreground and background images
+and applies it to the foreground</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>foregroundmonly <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The measure-only foreground image</p>
+</dd>
+<dt>foreground <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The write-only foreground image</p>
+</dd>
+<dt>background <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The background image to match local contrast to</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (newforegroundmonly, newforeground) representing the shifted
+measure-only foreground and foreground respectively</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.setcolortemp">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">setcolortemp</tt><big>(</big><em>image</em>, <em>shift</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.setcolortemp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.sethue">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">sethue</tt><big>(</big><em>image</em>, <em>shift</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.sethue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.setlog2luminance">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">setlog2luminance</tt><big>(</big><em>image</em>, <em>shift</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.setlog2luminance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.setlog2saturation">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">setlog2saturation</tt><big>(</big><em>image</em>, <em>shift</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.setlog2saturation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.setsaturation">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">setsaturation</tt><big>(</big><em>image</em>, <em>shift</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.setsaturation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.statadjust.statadjust.statadjust">
+<tt class="descclassname">inception.image.statadjust.statadjust.</tt><tt class="descname">statadjust</tt><big>(</big><em>foreground</em>, <em>background</em>, <em>offset=(0</em>, <em>0)</em>, <em>intermediary_results=False</em><big>)</big><a class="headerlink" href="#inception.image.statadjust.statadjust.statadjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a statistics-based image adjustment to better match 
+color/lighting in foreground to background</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>foreground <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The foreground image to match to the background</p>
+</dd>
+<dt>background <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The background image to match to</p>
+</dd>
+<dt>offset <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">A tuple of (row, column) denoting the offset into the destination image where the upper-left
+corner of the source image will begin (once merged). Default=(0,0)</p>
+</dd>
+<dt>intermediary_results <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd><p class="first last">If True, return the image at each stage of adjustment (contrast, luminance, cct, saturation)
+Otherwise, just returns the final result after each adjustment applied in turn.
+Default=False</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting foreground copy adjusted to match background, if intermediary_results=False
+Otherwise, returns a list of foreground image copies, represented the result of each intermediary
+adjustment in the pipeline</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>numpy.array</cite> or <cite>list</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.statadjust">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image.statadjust" title="Permalink to this headline">¶</a></h2>
+<p>Statistical image lighting adjustment based on
+&#8220;Understanding and Improving the Realism of Image Composites&#8221; (Xue et al. 2012)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image.statadjust package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.statadjust.colorspace">inception.image.statadjust.colorspace module</a></li>
+<li><a class="reference internal" href="#module-inception.image.statadjust.statadjust">inception.image.statadjust.statadjust module</a></li>
+<li><a class="reference internal" href="#module-inception.image.statadjust">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.image.shadow.html"
+                        title="previous chapter">inception.image.shadow package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.ui.html"
+                        title="next chapter">inception.ui package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.statadjust.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.statadjust.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image.operation package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception.image package" href="inception.image.html" />
+    <link rel="next" title="inception.image.place package" href="inception.image.place.html" />
+    <link rel="prev" title="inception.image.matte package" href="inception.image.matte.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.image.place.html" title="inception.image.place package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.image.matte.html" title="inception.image.matte package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" >inception package</a> &raquo;</li>
+          <li><a href="inception.image.html" accesskey="U">inception.image package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-operation-package">
+<h1>inception.image.operation package<a class="headerlink" href="#inception-image-operation-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.operation.base">
+<span id="inception-image-operation-base-module"></span><h2>inception.image.operation.base module<a class="headerlink" href="#module-inception.image.operation.base" title="Permalink to this headline">¶</a></h2>
+<p>Useful base functionality for use internally by the operations modules</p>
+<dl class="class">
+<dt id="inception.image.operation.base.Operation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.base.</tt><tt class="descname">Operation</tt><big>(</big><em>image</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.operation.base.Operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An abstract operation that represents some modification/action on 
+this operations&#8217;s image. Implementation of a particular operation can be created by 
+subclassing this and then overidding the <cite>run()</cite> method (and possibly the constructor).</p>
+<p>This abstraction allows bookkeeping/higher-level parts of the api to treat
+each operation as a discrete command, for the purposes of undos, tracking, etc.</p>
+<dl class="method">
+<dt id="inception.image.operation.base.Operation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.base.Operation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation and returns the resulting image after applying the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.floodfill">
+<span id="inception-image-operation-floodfill-module"></span><h2>inception.image.operation.floodfill module<a class="headerlink" href="#module-inception.image.operation.floodfill" title="Permalink to this headline">¶</a></h2>
+<p>Floodfill operation implementation</p>
+<dl class="class">
+<dt id="inception.image.operation.floodfill.FloodfillOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.floodfill.</tt><tt class="descname">FloodfillOperation</tt><big>(</big><em>image</em>, <em>keycolor=None</em>, <em>channel='a'</em>, <em>replacevalue=0.0</em>, <em>tol=0.04</em>, <em>seedpixel=None</em><big>)</big><a class="headerlink" href="#inception.image.operation.floodfill.FloodfillOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>A floodfill operation implementing a more or less generic floodfill operation</p>
+<dl class="method">
+<dt id="inception.image.operation.floodfill.FloodfillOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.floodfill.FloodfillOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the floodfill on this operation&#8217;s image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A copy of the input image after floodfill has been applied</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="inception.image.operation.floodfill.TargetNotFoundError">
+<em class="property">exception </em><tt class="descclassname">inception.image.operation.floodfill.</tt><tt class="descname">TargetNotFoundError</tt><a class="headerlink" href="#inception.image.operation.floodfill.TargetNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>An internal use exception that indicates the lack of a valid pixel from a selection operation
+e.g. see <cite>FloofillOperation._spiral()</cite></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.grabcut">
+<span id="inception-image-operation-grabcut-module"></span><h2>inception.image.operation.grabcut module<a class="headerlink" href="#module-inception.image.operation.grabcut" title="Permalink to this headline">¶</a></h2>
+<p>GrabCut operation implementation</p>
+<dl class="class">
+<dt id="inception.image.operation.grabcut.GrabcutMatteOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.grabcut.</tt><tt class="descname">GrabcutMatteOperation</tt><big>(</big><em>image</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.operation.grabcut.GrabcutMatteOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>Performs a GrabCut image segmentation on the given image a la
+C. Rother, V. Kolmogorov, and A. Blake, GrabCut: Interactive foreground extraction using
+iterated graph cuts, ACM Trans. Graph., vol. 23, pp. 309-314 2004</p>
+<dl class="method">
+<dt id="inception.image.operation.grabcut.GrabcutMatteOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.grabcut.GrabcutMatteOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A copy of the input image, whose alpha channel is populated based on the matting</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.matte">
+<span id="inception-image-operation-matte-module"></span><h2>inception.image.operation.matte module<a class="headerlink" href="#module-inception.image.operation.matte" title="Permalink to this headline">¶</a></h2>
+<p>Module for basic matting operations</p>
+<dl class="class">
+<dt id="inception.image.operation.matte.ClosedFormMatteOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.matte.</tt><tt class="descname">ClosedFormMatteOperation</tt><big>(</big><em>image</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.operation.matte.ClosedFormMatteOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>Performs a closed-form matting on the given image, based on 
+A. Levin D. Lischinski and Y. Weiss. A Closed Form Solution to Natural Image Matting.
+Conference on Computer Vision and Pattern Recognition (CVPR), June 2007.</p>
+<dl class="method">
+<dt id="inception.image.operation.matte.ClosedFormMatteOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.matte.ClosedFormMatteOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A copy of the input image, whose alpha channel is populated based on the matting</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.operation.matte.SimpleMatteOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.matte.</tt><tt class="descname">SimpleMatteOperation</tt><big>(</big><em>image</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.operation.matte.SimpleMatteOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>A simple &#8220;border matting&#8221; operation</p>
+<dl class="method">
+<dt id="inception.image.operation.matte.SimpleMatteOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.matte.SimpleMatteOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A copy of the input image, whose alpha channel is populated based on the matting</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.merge">
+<span id="inception-image-operation-merge-module"></span><h2>inception.image.operation.merge module<a class="headerlink" href="#module-inception.image.operation.merge" title="Permalink to this headline">¶</a></h2>
+<p>Merge related operations</p>
+<dl class="class">
+<dt id="inception.image.operation.merge.MergeOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.merge.</tt><tt class="descname">MergeOperation</tt><big>(</big><em>images</em>, <em>offsets=None</em><big>)</big><a class="headerlink" href="#inception.image.operation.merge.MergeOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>An operation for merging any number of differently sized images via an over operation</p>
+<dl class="method">
+<dt id="inception.image.operation.merge.MergeOperation.merge">
+<tt class="descname">merge</tt><big>(</big><em>image1</em>, <em>image2</em><big>)</big><a class="headerlink" href="#inception.image.operation.merge.MergeOperation.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges image 1 over image 2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image1 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite></span></dt>
+<dd><p class="first last">The image to merge in</p>
+</dd>
+<dt>image2 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>image</cite></span></dt>
+<dd><p class="first last">The image to merge on top of</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly merged image</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.operation.merge.MergeOperation.over">
+<tt class="descname">over</tt><big>(</big><em>image1</em>, <em>image2</em><big>)</big><a class="headerlink" href="#inception.image.operation.merge.MergeOperation.over" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs an over operation of image 1 over image 2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image1 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite></span></dt>
+<dd><p class="first last">The image to place over image 2</p>
+</dd>
+<dt>image2 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite></span></dt>
+<dd><p class="first last">The image to place under image 1</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly merged image</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.operation.merge.MergeOperation.over_channel">
+<tt class="descname">over_channel</tt><big>(</big><em>image1_channel</em>, <em>image2_channel</em>, <em>alpha1</em>, <em>alpha2</em><big>)</big><a class="headerlink" href="#inception.image.operation.merge.MergeOperation.over_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs an over for a given channel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image1_channel <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">A specific channel for image 1 to composite over the image 2 channel</p>
+</dd>
+<dt>image2_channel <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">A specific channel for image 2</p>
+</dd>
+<dt>alpha1 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The alpha channel of image 1</p>
+</dd>
+<dt>alpha2 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.arra</cite></span></dt>
+<dd><p class="first last">The alpha channel of image 2</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The image1 channel composited over the image2 channel</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>numpy.array</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.operation.merge.MergeOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.merge.MergeOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.poisson">
+<span id="inception-image-operation-poisson-module"></span><h2>inception.image.operation.poisson module<a class="headerlink" href="#module-inception.image.operation.poisson" title="Permalink to this headline">¶</a></h2>
+<p>Module for Poisson Blending operations</p>
+<dl class="class">
+<dt id="inception.image.operation.poisson.CVDummy">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.poisson.</tt><tt class="descname">CVDummy</tt><a class="headerlink" href="#inception.image.operation.poisson.CVDummy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="inception.image.operation.poisson.CVDummy.NORMAL_CLONE">
+<tt class="descname">NORMAL_CLONE</tt><a class="headerlink" href="#inception.image.operation.poisson.CVDummy.NORMAL_CLONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.operation.poisson.PoissonOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.poisson.</tt><tt class="descname">PoissonOperation</tt><big>(</big><em>source_image</em>, <em>dest_image</em>, <em>offset=(0</em>, <em>0)</em>, <em>clone_type=0</em><big>)</big><a class="headerlink" href="#inception.image.operation.poisson.PoissonOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>Implements a poisson image blending operation, a la
+Perez, Patrick, Michel Gangnet, and Andrew Blake. &#8220;Poisson image editing.&#8221; ACM Transactions on Graphics (TOG). Vol. 22. No. 3. ACM, 2003.
+APA</p>
+<dl class="method">
+<dt id="inception.image.operation.poisson.PoissonOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.poisson.PoissonOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A single image with foreground and background blended together seamlessly</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.scale">
+<span id="inception-image-operation-scale-module"></span><h2>inception.image.operation.scale module<a class="headerlink" href="#module-inception.image.operation.scale" title="Permalink to this headline">¶</a></h2>
+<p>Scale operation module</p>
+<dl class="class">
+<dt id="inception.image.operation.scale.ScaleOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.scale.</tt><tt class="descname">ScaleOperation</tt><big>(</big><em>image</em>, <em>target_width</em>, <em>target_height=None</em>, <em>maintain_ratio=False</em>, <em>interp='bilinear'</em><big>)</big><a class="headerlink" href="#inception.image.operation.scale.ScaleOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>A simple operation for scaling the given image</p>
+<dl class="method">
+<dt id="inception.image.operation.scale.ScaleOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.scale.ScaleOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A scaled copy of the input image</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.shadow">
+<span id="inception-image-operation-shadow-module"></span><h2>inception.image.operation.shadow module<a class="headerlink" href="#module-inception.image.operation.shadow" title="Permalink to this headline">¶</a></h2>
+<p>Shadowing operations</p>
+<dl class="class">
+<dt id="inception.image.operation.shadow.GenerateShadowOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.shadow.</tt><tt class="descname">GenerateShadowOperation</tt><big>(</big><em>foreground</em>, <em>background</em>, <em>offset=(0</em>, <em>0)</em>, <em>scene_description=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.operation.shadow.GenerateShadowOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>A shadow generation operation which acts on a foreground and background and generates a
+feasible foreground shadow onto the background scene</p>
+<dl class="method">
+<dt id="inception.image.operation.shadow.GenerateShadowOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.shadow.GenerateShadowOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The generated shadow image (RGBA)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation.statadjust">
+<span id="inception-image-operation-statadjust-module"></span><h2>inception.image.operation.statadjust module<a class="headerlink" href="#module-inception.image.operation.statadjust" title="Permalink to this headline">¶</a></h2>
+<p>Statistics-based image adjustment operations</p>
+<dl class="class">
+<dt id="inception.image.operation.statadjust.StatAdjustOperation">
+<em class="property">class </em><tt class="descclassname">inception.image.operation.statadjust.</tt><tt class="descname">StatAdjustOperation</tt><big>(</big><em>foreground</em>, <em>background</em>, <em>offset=(0</em>, <em>0)</em><big>)</big><a class="headerlink" href="#inception.image.operation.statadjust.StatAdjustOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.operation.base.Operation" title="inception.image.operation.base.Operation"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.operation.base.Operation</span></tt></a></p>
+<p>Performs a statistical image match of the foreground to the background,
+using an adapted version of &#8220;Understanding and Improving the Realism of 
+Image Composites&#8221; (Xue et al. 2012)</p>
+<dl class="method">
+<dt id="inception.image.operation.statadjust.StatAdjustOperation.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.operation.statadjust.StatAdjustOperation.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the operation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A copy of the foreground image after statistical image adjustments have been applied</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype:</th><td class="field-body"><cite>Image</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.operation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image.operation" title="Permalink to this headline">¶</a></h2>
+<p>Useful internal operations on Image objects</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image.operation package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.base">inception.image.operation.base module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.floodfill">inception.image.operation.floodfill module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.grabcut">inception.image.operation.grabcut module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.matte">inception.image.operation.matte module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.merge">inception.image.operation.merge module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.poisson">inception.image.operation.poisson module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.scale">inception.image.operation.scale module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.shadow">inception.image.operation.shadow module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation.statadjust">inception.image.operation.statadjust module</a></li>
+<li><a class="reference internal" href="#module-inception.image.operation">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.image.matte.html"
+                        title="previous chapter">inception.image.matte package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.image.place.html"
+                        title="next chapter">inception.image.place package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.operation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.operation.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

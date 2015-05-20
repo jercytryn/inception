@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image.scene package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception.image package" href="inception.image.html" />
+    <link rel="next" title="inception.image.shadow package" href="inception.image.shadow.html" />
+    <link rel="prev" title="inception.image.place package" href="inception.image.place.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.image.shadow.html" title="inception.image.shadow package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.image.place.html" title="inception.image.place package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" >inception package</a> &raquo;</li>
+          <li><a href="inception.image.html" accesskey="U">inception.image package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-scene-package">
+<h1>inception.image.scene package<a class="headerlink" href="#inception-image-scene-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.scene.scene">
+<span id="inception-image-scene-scene-module"></span><h2>inception.image.scene.scene module<a class="headerlink" href="#module-inception.image.scene.scene" title="Permalink to this headline">¶</a></h2>
+<p>Base scene module</p>
+<dl class="class">
+<dt id="inception.image.scene.scene.SceneDescription">
+<em class="property">class </em><tt class="descclassname">inception.image.scene.scene.</tt><tt class="descname">SceneDescription</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.scene.SceneDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A general purpose scene description which contains all the (usually 3D) information we&#8217;ve able to infer
+about the scene captured by the image</p>
+<dl class="attribute">
+<dt id="inception.image.scene.scene.SceneDescription.camera_matrix">
+<tt class="descname">camera_matrix</tt><a class="headerlink" href="#inception.image.scene.scene.SceneDescription.camera_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>The 3x3 intrinsic camera matrix to transform from camera space to image (pixel) space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>numpy.array</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.scene.scene.SceneDescription.focal_length">
+<tt class="descname">focal_length</tt><a class="headerlink" href="#inception.image.scene.scene.SceneDescription.focal_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The estimated focal length of the camera used to render the scne</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>float</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.scene.SceneDescription.get_vanishing_points">
+<tt class="descname">get_vanishing_points</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.scene.SceneDescription.get_vanishing_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the image space coordinates of the 3 vanishing points in the scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A 3x2 array of the 3 vanishing point coordinates in image space</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.scene.SceneDescription.get_world_to_camera_transformation">
+<tt class="descname">get_world_to_camera_transformation</tt><big>(</big><em>origin=(0</em>, <em>0)</em><big>)</big><a class="headerlink" href="#inception.image.scene.scene.SceneDescription.get_world_to_camera_transformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the transformation from world space to camera space given the target point
+in image space of the origin</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>origin <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">Where the origin lies in image space</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (R,t) where R is the rotation matrix and t is the translation vector to get
+into world space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.scene.scene.estimate_scene_description">
+<tt class="descclassname">inception.image.scene.scene.</tt><tt class="descname">estimate_scene_description</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.scene.estimate_scene_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an image, estimates the scene descriptor for that image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite> or <cite>Image</cite></span></dt>
+<dd><p class="first last">The image whose scene description to estimate</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The scene description for that image</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.scene.vanishingpoint">
+<span id="inception-image-scene-vanishingpoint-module"></span><h2>inception.image.scene.vanishingpoint module<a class="headerlink" href="#module-inception.image.scene.vanishingpoint" title="Permalink to this headline">¶</a></h2>
+<p>Module for vanishing point computation</p>
+<dl class="class">
+<dt id="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator">
+<em class="property">class </em><tt class="descclassname">inception.image.scene.vanishingpoint.</tt><tt class="descname">AbstractVanishingPointEstimator</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An abstract estimator used to generate vanishing point guesses</p>
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.estimate">
+<tt class="descname">estimate</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the vanishing point estimation
+Subclasses wishing to be concrete must override this method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.get_intrinsic_camera_transformation">
+<tt class="descname">get_intrinsic_camera_transformation</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.get_intrinsic_camera_transformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the 3x3 intrinsic camera matrix to transform from camera space to image (pixel) space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><cite>numpy.array</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.get_projective_vanishing_points">
+<tt class="descname">get_projective_vanishing_points</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.get_projective_vanishing_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the image space coordinates of the 3 vanishing points in the scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A 3x2 array of the 3 vanishing point coordinates in image space</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.solve_world_to_cam">
+<tt class="descname">solve_world_to_cam</tt><big>(</big><em>origin=(0</em>, <em>0)</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator.solve_world_to_cam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve for the rotation and translation to get from world space to camera space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>origin <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">Where the origin lies in image space</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple of (R,t) where R is the rotation matrix and t is the translation vector to get
+into world space</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.scene.vanishingpoint.GenericLineExtractorMixin">
+<em class="property">class </em><tt class="descclassname">inception.image.scene.vanishingpoint.</tt><tt class="descname">GenericLineExtractorMixin</tt><a class="headerlink" href="#inception.image.scene.vanishingpoint.GenericLineExtractorMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A generic line extractor mixin which extracts lines using a simple canny edge filter followed by 
+a probabilistic Hough transform.</p>
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.GenericLineExtractorMixin.extract_lines">
+<tt class="descname">extract_lines</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.GenericLineExtractorMixin.extract_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the line segments found for the given image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A [y x 4] or [y x 5] array of y lines found given as
+(x1, y1, x2, y2) or (x1, y1, x2, y2, width)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator">
+<em class="property">class </em><tt class="descclassname">inception.image.scene.vanishingpoint.</tt><tt class="descname">JLinkageVanishingPointEstimator</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator" title="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator</span></tt></a>, <a class="reference internal" href="#inception.image.scene.vanishingpoint.LSDLineExtractorMixin" title="inception.image.scene.vanishingpoint.LSDLineExtractorMixin"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.scene.vanishingpoint.LSDLineExtractorMixin</span></tt></a></p>
+<p>Ported from <a class="reference external" href="https://github.com/seanbell/opensurfaces/blob/master/server/photos/tasks.py#L136">https://github.com/seanbell/opensurfaces/blob/master/server/photos/tasks.py#L136</a>
+Sean Bell, Paul Upchurch, Noah Snavely, Kavita Bala
+OpenSurfaces: A Richly Annotated Catalog of Surface Appearance
+ACM Transactions on Graphics (SIGGRAPH 2013)</p>
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.abs_dot">
+<tt class="descname">abs_dot</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.abs_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return </p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.aspect_ratio">
+<tt class="descname">aspect_ratio</tt><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.aspect_ratio" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.estimate">
+<tt class="descname">estimate</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.estimate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.fov">
+<tt class="descname">fov</tt><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.fov" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.get_projective_vanishing_points">
+<tt class="descname">get_projective_vanishing_points</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.get_projective_vanishing_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.homo_line">
+<tt class="descname">homo_line</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.homo_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the homogenous equation of a line passing through a and b,
+i.e. [ax, ay, 1] cross [bx, by, 1]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.line_cluster_length">
+<tt class="descname">line_cluster_length</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.line_cluster_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.line_residual">
+<tt class="descname">line_residual</tt><big>(</big><em>l</em>, <em>p</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.line_residual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the distance between an endpoint of l and the line from p to
+the midpoint of l.  Based on Equation (2) of [Tardif, ICCV 2009
+<a class="reference external" href="http://www-etud.iro.umontreal.ca/~tardifj/fichiers/Tardif_ICCV2009.pdf">http://www-etud.iro.umontreal.ca/~tardifj/fichiers/Tardif_ICCV2009.pdf</a>]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.normalized">
+<tt class="descname">normalized</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.normalized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize an nd vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.normalized_cross">
+<tt class="descname">normalized_cross</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.normalized_cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D cross product</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.pack_x">
+<tt class="descname">pack_x</tt><big>(</big><em>vecs</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.pack_x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.sphere_to_unit">
+<tt class="descname">sphere_to_unit</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.sphere_to_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert (theta, phi) to (x, y, z)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.unit_to_sphere">
+<tt class="descname">unit_to_sphere</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.unit_to_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert (x, y, z) to (theta, phi)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.unpack_x">
+<tt class="descname">unpack_x</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.unpack_x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.vanishing_point_to_vector">
+<tt class="descname">vanishing_point_to_vector</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.vanishing_point_to_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the 3D unit vector corresponding to a vanishing point
+(specified in normalized coordinates)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.vector_to_vanishing_point">
+<tt class="descname">vector_to_vanishing_point</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.vector_to_vanishing_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the 2D vanishing point (in normalized coordinates)
+corresponding to 3D vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.vectors_to_points">
+<tt class="descname">vectors_to_points</tt><big>(</big><em>image</em>, <em>vectors</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.JLinkageVanishingPointEstimator.vectors_to_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.scene.vanishingpoint.LSDLineExtractorMixin">
+<em class="property">class </em><tt class="descclassname">inception.image.scene.vanishingpoint.</tt><tt class="descname">LSDLineExtractorMixin</tt><a class="headerlink" href="#inception.image.scene.vanishingpoint.LSDLineExtractorMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Ported from <a class="reference external" href="https://github.com/seanbell/opensurfaces/blob/master/server/photos/tasks.py#L136">https://github.com/seanbell/opensurfaces/blob/master/server/photos/tasks.py#L136</a>
+Sean Bell, Paul Upchurch, Noah Snavely, Kavita Bala
+OpenSurfaces: A Richly Annotated Catalog of Surface Appearance
+ACM Transactions on Graphics (SIGGRAPH 2013)</p>
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.LSDLineExtractorMixin.extract_lines">
+<tt class="descname">extract_lines</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.LSDLineExtractorMixin.extract_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the line segments found for the given image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A [y x 4] or [y x 5] array of y lines found given as
+(x1, y1, x2, y2) or (x1, y1, x2, y2, width)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="inception.image.scene.vanishingpoint.ZhangVanishingPointEstimator">
+<em class="property">class </em><tt class="descclassname">inception.image.scene.vanishingpoint.</tt><tt class="descname">ZhangVanishingPointEstimator</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.ZhangVanishingPointEstimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator" title="inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.scene.vanishingpoint.AbstractVanishingPointEstimator</span></tt></a>, <a class="reference internal" href="#inception.image.scene.vanishingpoint.LSDLineExtractorMixin" title="inception.image.scene.vanishingpoint.LSDLineExtractorMixin"><tt class="xref py py-class docutils literal"><span class="pre">inception.image.scene.vanishingpoint.LSDLineExtractorMixin</span></tt></a></p>
+<p>Based on 
+Lilian Zhang, Huimin Lu, Reinhard Koch, 
+Vanishing Point Estimation and Line Classification in a Manhattan World with a Unifying Camera Model,  
+submitted to IJCV.
+Using Matlab code from <a class="reference external" href="http://www.mip.informatik.uni-kiel.de/tiki-download_file.php?fileId=2105">http://www.mip.informatik.uni-kiel.de/tiki-download_file.php?fileId=2105</a></p>
+<dl class="method">
+<dt id="inception.image.scene.vanishingpoint.ZhangVanishingPointEstimator.estimate">
+<tt class="descname">estimate</tt><big>(</big><big>)</big><a class="headerlink" href="#inception.image.scene.vanishingpoint.ZhangVanishingPointEstimator.estimate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.scene">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image.scene" title="Permalink to this headline">¶</a></h2>
+<p>Scene-related inference and estimation</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image.scene package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.scene.scene">inception.image.scene.scene module</a></li>
+<li><a class="reference internal" href="#module-inception.image.scene.vanishingpoint">inception.image.scene.vanishingpoint module</a></li>
+<li><a class="reference internal" href="#module-inception.image.scene">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.image.place.html"
+                        title="previous chapter">inception.image.place package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.image.shadow.html"
+                        title="next chapter">inception.image.shadow package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.scene.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.scene.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

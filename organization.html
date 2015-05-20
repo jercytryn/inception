@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Internal Structure &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="index.html" />
+    <link rel="next" title="Api Reference" href="reference/modules.html" />
+    <link rel="prev" title="Getting Started" href="starting.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="reference/modules.html" title="Api Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="starting.html" title="Getting Started"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">inception 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="internal-structure">
+<h1>Internal Structure<a class="headerlink" href="#internal-structure" title="Permalink to this headline">¶</a></h1>
+<p>The internals of the inception python api are entirely contained within <a class="reference internal" href="reference/inception.image.html#module-inception.image" title="inception.image"><tt class="xref py py-mod docutils literal"><span class="pre">inception.image</span></tt></a>.  Roughly speaking, the internal api is organized in a series of lower-level packages, most of which implement some core piece of functionality, such as matting, shadow insertion, scene understanding, etc. Each of these packages contain the low-level image manipulation and implementation and tend to take numpy arrays directly as arguments.</p>
+<p>The most important internal class however is <tt class="xref py py-mod docutils literal"><span class="pre">Image</span></tt>, which is exposed directly up to the public api.  The <cite>Operation</cite> classes work directly with images</p>
+<p>The link between the internal api and the public api is provided by the <tt class="xref py py-class docutils literal"><span class="pre">Operation</span></tt> class and its subclasses.  All functionality exposed up to the public api is wrapped in an <cite>Operation</cite> subclass. This serves the purpose of defining a consistent interface for interacting with and swapping out major pipeline pieces, and keeps access of the top-level api and gui to the internals relatively streamlined.  <cite>Operation`s deal exclusively with `Image</cite> objects as input and output and in that sense operate at a higher level than the rest of the internal api.  Additionally, some of the <cite>Operation</cite> subclasses do not have a corresponding low-level class, as is usually the case when the operation serves only to provide a unified interface around third party functions, such as <a class="reference internal" href="reference/inception.image.operation.html#inception.image.operation.poisson.PoissonOperation" title="inception.image.operation.poisson.PoissonOperation"><tt class="xref py py-class docutils literal"><span class="pre">PoissonOperation</span></tt></a>.  In these cases, the <cite>Operation</cite> structure again serves the added benefit of making the interface more consistent.  In general an operation will take in one or more images as its first arguments, and always returns a single image which is the result of the operation.  In this way, operations can usually be chained together, as is done by the public api.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="starting.html"
+                        title="previous chapter">Getting Started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="reference/modules.html"
+                        title="next chapter">Api Reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/organization.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="_sources/organization.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

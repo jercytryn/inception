@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image.matte package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception.image package" href="inception.image.html" />
+    <link rel="next" title="inception.image.operation package" href="inception.image.operation.html" />
+    <link rel="prev" title="inception.image package" href="inception.image.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.image.operation.html" title="inception.image.operation package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.image.html" title="inception.image package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" >inception package</a> &raquo;</li>
+          <li><a href="inception.image.html" accesskey="U">inception.image package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-matte-package">
+<h1>inception.image.matte package<a class="headerlink" href="#inception-image-matte-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.matte.bordermatte">
+<span id="inception-image-matte-bordermatte-module"></span><h2>inception.image.matte.bordermatte module<a class="headerlink" href="#module-inception.image.matte.bordermatte" title="Permalink to this headline">¶</a></h2>
+<p>&#8220;Border&#8221; matting implementation</p>
+<dl class="function">
+<dt id="inception.image.matte.bordermatte.alphamatte">
+<tt class="descclassname">inception.image.matte.bordermatte.</tt><tt class="descname">alphamatte</tt><big>(</big><em>image</em>, <em>tol_low=0.03</em>, <em>tol_high=0.25</em><big>)</big><a class="headerlink" href="#inception.image.matte.bordermatte.alphamatte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mattes the given image by isolating a border of unsure pixels based on difference from
+background color and applying operacity based on coverage along the border.  An erosion
+is performed to further improve quality of the alpha channel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image to matte</p>
+</dd>
+<dt>tol_low <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">A lower tolerance of image difference with background below which pixel is 
+assumed to be part of the background.</p>
+</dd>
+<dt>tol_high <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">An upper tolerance on the image difference above which pixels are assumed to be part
+of the foreground</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting alpha channel</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>numpy.array</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.matte.closedformmatte">
+<span id="inception-image-matte-closedformmatte-module"></span><h2>inception.image.matte.closedformmatte module<a class="headerlink" href="#module-inception.image.matte.closedformmatte" title="Permalink to this headline">¶</a></h2>
+<p>Closed form matting implementation, ported from the original matlab code.  
+Based on 
+A. Levin D. Lischinski and Y. Weiss. A Closed Form Solution to Natural Image Matting.
+Conference on Computer Vision and Pattern Recognition (CVPR), June 2007.</p>
+<dl class="function">
+<dt id="inception.image.matte.closedformmatte.alphamatte">
+<tt class="descclassname">inception.image.matte.closedformmatte.</tt><tt class="descname">alphamatte</tt><big>(</big><em>image</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#inception.image.matte.closedformmatte.alphamatte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mattes the given image using closed form matting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The input image to matte</p>
+</dd>
+<dt>scribble <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">An image that provides constraints on definite foreground and definite background,
+background is given value of 0 and foreground a value of 1.  Everything gray is unknown.
+If not given, constraints are determined procedurally based on difference from background color
+Default=None</p>
+</dd>
+<dt>epsilon <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">Regularizing term, default=.0000001</p>
+</dd>
+<dt>win_size <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">Window size, default=1</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting alpha channel</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>numpy.array</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.matte.closedformmatte.generate_scribbles">
+<tt class="descclassname">inception.image.matte.closedformmatte.</tt><tt class="descname">generate_scribbles</tt><big>(</big><em>image</em>, <em>bg_color</em>, <em>bg_threshold=1e-12</em>, <em>fg_threshold=0.05</em><big>)</big><a class="headerlink" href="#inception.image.matte.closedformmatte.generate_scribbles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auto-generate conservative scribbles from an image with a given solid background color</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.matte.closedformmatte.getLaplacian1">
+<tt class="descclassname">inception.image.matte.closedformmatte.</tt><tt class="descname">getLaplacian1</tt><big>(</big><em>image</em>, <em>consts</em>, <em>epsilon=1e-07</em>, <em>win_size=1</em><big>)</big><a class="headerlink" href="#inception.image.matte.closedformmatte.getLaplacian1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="inception.image.matte.closedformmatte.runMatting">
+<tt class="descclassname">inception.image.matte.closedformmatte.</tt><tt class="descname">runMatting</tt><big>(</big><em>image</em>, <em>scribble=None</em>, <em>epsilon=None</em>, <em>win_size=None</em><big>)</big><a class="headerlink" href="#inception.image.matte.closedformmatte.runMatting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the closed form matting algorithm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The input image to matte</p>
+</dd>
+<dt>scribble <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">An image that provides constraints on definite foreground and definite background,
+background is given value of 0 and foreground a value of 1.  Everything gray is unknown.
+If not given, constraints are determined procedurally based on difference from background color
+Default=None</p>
+</dd>
+<dt>epsilon <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">Regularizing term, default=.0000001</p>
+</dd>
+<dt>win_size <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">Window size, default=1</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting alpha channel</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>numpy.array</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.matte.closedformmatte.solveAlpha">
+<tt class="descclassname">inception.image.matte.closedformmatte.</tt><tt class="descname">solveAlpha</tt><big>(</big><em>image</em>, <em>consts_map</em>, <em>consts_vals</em>, <em>epsilon=None</em>, <em>win_size=None</em>, <em>lambda_val=100</em><big>)</big><a class="headerlink" href="#inception.image.matte.closedformmatte.solveAlpha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.matte.simplematte">
+<span id="inception-image-matte-simplematte-module"></span><h2>inception.image.matte.simplematte module<a class="headerlink" href="#module-inception.image.matte.simplematte" title="Permalink to this headline">¶</a></h2>
+<p>A dead simple baseline matting algorithm</p>
+<dl class="function">
+<dt id="inception.image.matte.simplematte.alphamatte">
+<tt class="descclassname">inception.image.matte.simplematte.</tt><tt class="descname">alphamatte</tt><big>(</big><em>image</em>, <em>tol=0.2</em><big>)</big><a class="headerlink" href="#inception.image.matte.simplematte.alphamatte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs simple matting on the given image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image to matte</p>
+</dd>
+<dt>tol <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">Tolerance such that any pixels whose difference from the background color exceeds
+this in any channel is considered definite foreground</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.matte">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image.matte" title="Permalink to this headline">¶</a></h2>
+<p>This package contains various useful implementations of different types of matting algorithms</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image.matte package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.matte.bordermatte">inception.image.matte.bordermatte module</a></li>
+<li><a class="reference internal" href="#module-inception.image.matte.closedformmatte">inception.image.matte.closedformmatte module</a></li>
+<li><a class="reference internal" href="#module-inception.image.matte.simplematte">inception.image.matte.simplematte module</a></li>
+<li><a class="reference internal" href="#module-inception.image.matte">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.image.html"
+                        title="previous chapter">inception.image package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.image.operation.html"
+                        title="next chapter">inception.image.operation package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.matte.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.matte.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

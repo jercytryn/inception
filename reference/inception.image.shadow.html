@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>inception.image.shadow package &mdash; inception 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="inception 0.1 documentation" href="../index.html" />
+    <link rel="up" title="inception.image package" href="inception.image.html" />
+    <link rel="next" title="inception.image.statadjust package" href="inception.image.statadjust.html" />
+    <link rel="prev" title="inception.image.scene package" href="inception.image.scene.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inception.image.statadjust.html" title="inception.image.statadjust package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inception.image.scene.html" title="inception.image.scene package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">inception 0.1 documentation</a> &raquo;</li>
+          <li><a href="modules.html" >Api Reference</a> &raquo;</li>
+          <li><a href="inception.html" >inception package</a> &raquo;</li>
+          <li><a href="inception.image.html" accesskey="U">inception.image package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="inception-image-shadow-package">
+<h1>inception.image.shadow package<a class="headerlink" href="#inception-image-shadow-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-inception.image.shadow.shadow">
+<span id="inception-image-shadow-shadow-module"></span><h2>inception.image.shadow.shadow module<a class="headerlink" href="#module-inception.image.shadow.shadow" title="Permalink to this headline">¶</a></h2>
+<p>Main module for shadow-based image manipulations</p>
+<dl class="function">
+<dt id="inception.image.shadow.shadow.blacken_image">
+<tt class="descclassname">inception.image.shadow.shadow.</tt><tt class="descname">blacken_image</tt><big>(</big><em>image</em><big>)</big><a class="headerlink" href="#inception.image.shadow.shadow.blacken_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an all black copy of the given image, preserving the alpha channel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The image to black</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A blackened copy of the image</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.shadow.shadow.compute_homography">
+<tt class="descclassname">inception.image.shadow.shadow.</tt><tt class="descname">compute_homography</tt><big>(</big><em>image</em>, <em>scene_description</em>, <em>x0</em>, <em>x1</em>, <em>y0</em>, <em>y1</em><big>)</big><a class="headerlink" href="#inception.image.shadow.shadow.compute_homography" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the perspective transformation in image space to warp the image to the shadow</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>image <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The background image</p>
+</dd>
+<dt>scene_description <span class="classifier-delimiter">:</span> <span class="classifier"><cite>SceneDescription</cite></span></dt>
+<dd><p class="first last">An estimated scene descripton for the background image</p>
+</dd>
+<dt>x0 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The leftmost tightest bounding coordinate for the foreground object</p>
+</dd>
+<dt>x1 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The rightmost tightest bounding coordinate for the foreground object</p>
+</dd>
+<dt>y0 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The bottommost tightest bounding coordinate for the foreground object</p>
+</dd>
+<dt>y1 <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The topmost tightest bounding coorindate for the foreground object</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The 3x3 perspective transformation matrix needed to warp the foreground to its shadow</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.shadow.shadow.create_shadow">
+<tt class="descclassname">inception.image.shadow.shadow.</tt><tt class="descname">create_shadow</tt><big>(</big><em>foreground</em>, <em>background</em>, <em>blur=15</em>, <em>opacity=0.45</em>, <em>segments=10</em>, <em>offset=(0</em>, <em>0)</em>, <em>scene_description=None</em>, <em>skip_soften=False</em><big>)</big><a class="headerlink" href="#inception.image.shadow.shadow.create_shadow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a feasible shadow for the foreground image to cast on the background image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>foreground <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite></span></dt>
+<dd><p class="first last">The foreground image which should cast a shadow</p>
+</dd>
+<dt>background <span class="classifier-delimiter">:</span> <span class="classifier"><cite>Image</cite></span></dt>
+<dd><p class="first last">The background image which should receive the shadow</p>
+</dd>
+<dt>blur <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">The amount of gaussian blur to apply to soften the shadow, on average.</p>
+</dd>
+<dt>opacity <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">The average baseline opacity for the softened shadow [0,1]</p>
+</dd>
+<dt>segments <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The number of unique slices to use when applying spatially varying gaussian blur</p>
+</dd>
+<dt>offset <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">A tuple of (row, column) denoting the offset into the destination image where the upper-left
+corner of the source image will begin (once merged). Default=(0,0)</p>
+</dd>
+<dt>scene_description <span class="classifier-delimiter">:</span> <span class="classifier"><cite>SceneDescription</cite></span></dt>
+<dd><p class="first last">A scene description object for the background scene, containing various descriptors needed
+to create shadows.  If not given, the scene description is computed on the fly.</p>
+</dd>
+<dt>skip_soften <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd><p class="first last">If True, do not perform any shadow softening. Default=False</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The generated shadow image, of same dimensions as the dest_image</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last"><cite>Image</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.shadow.shadow.normalize_foreground">
+<tt class="descclassname">inception.image.shadow.shadow.</tt><tt class="descname">normalize_foreground</tt><big>(</big><em>foreground</em>, <em>background</em>, <em>offset</em>, <em>expand=True</em><big>)</big><a class="headerlink" href="#inception.image.shadow.shadow.normalize_foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalizes the shape of the given foreground image to match the shape of the background image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramters:</th><td class="field-body"><dl class="first docutils">
+<dt>foreground <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The foreground image to normalize</p>
+</dd>
+<dt>background <span class="classifier-delimiter">:</span> <span class="classifier"><cite>numpy.array</cite></span></dt>
+<dd><p class="first last">The background image whose size we want to match to</p>
+</dd>
+<dt>offset <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">A tuple of (row, column) denoting the offset into the destination image where the upper-left
+corner of the source image will begin (once merged). Default=(0,0)</p>
+</dd>
+<dt>expand <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd><p class="first last">If True, expands the normalized foreground so as not to crop it at all, e.g. if negative offsets
+or the like. Otherwise, perform a crop based on offset and going over the background size as in
+a normal merge</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A copy of the foreground, normalized relative to the background</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inception.image.shadow.shadow.temper_shadow">
+<tt class="descclassname">inception.image.shadow.shadow.</tt><tt class="descname">temper_shadow</tt><big>(</big><em>shadow</em>, <em>blur</em>, <em>opacity</em>, <em>segments</em>, <em>bounds</em><big>)</big><a class="headerlink" href="#inception.image.shadow.shadow.temper_shadow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Softens the given shadow image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>blur <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">The amount of gaussian blur to apply to soften the shadow, on average.</p>
+</dd>
+<dt>opacity <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd><p class="first last">The average baseline opacity for the softened shadow [0,1]</p>
+</dd>
+<dt>segments <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd><p class="first last">The number of unique slices to use when applying spatially varying gaussian blur</p>
+</dd>
+<dt>bounds <span class="classifier-delimiter">:</span> <span class="classifier"><cite>tuple</cite></span></dt>
+<dd><p class="first last">The tight axis-aligned bounding box around the unwarped shadow given as
+(xleft, xright, ybottom, ytop)</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The tempered shadow image</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-inception.image.shadow">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-inception.image.shadow" title="Permalink to this headline">¶</a></h2>
+<p>Shadow-based image manipulations</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">inception.image.shadow package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-inception.image.shadow.shadow">inception.image.shadow.shadow module</a></li>
+<li><a class="reference internal" href="#module-inception.image.shadow">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inception.image.scene.html"
+                        title="previous chapter">inception.image.scene package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inception.image.statadjust.html"
+                        title="next chapter">inception.image.statadjust package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/inception.image.shadow.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jeremy Cytryn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/reference/inception.image.shadow.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
