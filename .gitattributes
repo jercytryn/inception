@@ -26,6 +26,7 @@
 *.dll binary
 *.so binary
 *.jar binary
+*.lib binary
  
 # Documents
 *.doc  diff=astextplain
@@ -33,3 +34,8 @@
 *.dot  diff=astextplain
 *.pdf  diff=astextplain
 *.rtf  diff=astextplain
+
+# Visual Studio
+*.sln    text eol=crlf
+*.def    text eol=crlf
+*.vcproj text eol=crlf
